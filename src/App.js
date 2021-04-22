@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import {BrowserRouter, Route,Switch } from 'react-router-dom'
 import './App.css';
+import 'semantic-ui-css/semantic.min.css';
+import Home from './components/Home'
+import Video from './components/Video'
+import Error404 from './components/Error404'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="container">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/video" component={Video} />
+          <Route component={Error404} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
